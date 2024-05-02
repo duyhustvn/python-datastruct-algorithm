@@ -1,0 +1,3 @@
+# make -f 01_Makefile test
+test:
+	python3 01_binary_search_test.py
