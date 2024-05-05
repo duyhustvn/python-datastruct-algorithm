@@ -2,7 +2,7 @@
 
 import unittest
 
-bs = __import__('02_sqrt')
+sl = __import__('02_sqrt')
 
 class Test:
     def __init__(self, input, expectedOutput):
@@ -31,7 +31,7 @@ class TestBinarySearch(unittest.TestCase):
         ]
 
         for test in tests:
-             solution = bs.Solution()
+             solution = sl.Solution()
              result = solution.mySqrt(test.input)
              self.assertEqual(result, test.expectedOutput)
 
