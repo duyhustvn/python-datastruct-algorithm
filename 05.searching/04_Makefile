@@ -1,0 +1,3 @@
+# make -f 04_Makefile test
+test:
+	python3 04_count_negative_nums_sorted_matrix_test.py
