@@ -4,6 +4,10 @@
 from typing import List
 
 class Solution:
+    """
+    Time complexity: O(logN)
+    Space complexity: O(1)
+    """
     def bs(self, nums: List[int], left: int, right: int, target: int) -> int:
         while left <= right:
             mid = left + (right-left)//2
@@ -15,40 +19,28 @@ class Solution:
                 left = mid + 1
         return -1
 
+    #  [4,5,1,2,3] 6
+    def findPivot(self, nums: List[int]) -> int:
+        left = 0
+        n = len(nums)
+        right = n-1
+        while left <= right:
+            mid = left + (right-left)//2
+            if nums[mid] > nums[n-1]:
+                left = mid + 1
+            else:
+                right = mid - 1
+        return left
+
+
     def search(self, nums: List[int], target: int) -> int:
         # find the rotate index
-        left = 0
-        right = len(nums)-1
-        pivot = len(nums)-1
 
-        if len(nums) == 1:
-            pivot = 0
-        elif len(nums) == 2:
-                pivot = 1
-        elif nums[0] < nums[right]: # array not rotate
-            pivot = len(nums)-1
-        else:
-            while left <= right:
-                mid = left + (right-left)//2
-                if nums[mid] == target:
-                    return mid
-
-                if mid == 0:
-                    pivot = 1
-                    break
-                elif mid == len(nums)-1 or nums[mid] < nums[mid-1] and nums[mid] < nums[mid+1]:
-                    pivot = mid
-                    break
-                elif nums[mid] > nums[0]:
-                    left = mid+1
-                else:
-                    right = mid -1
-
+        pivot = self.findPivot(nums)
 
         if target == nums[pivot]:
             return pivot
 
-        if target >= nums[0]:
-            return self.bs(nums, 0, pivot-1, target)
-        else:
-            return self.bs(nums, pivot, len(nums)-1, target)
+        if (answer := self.bs(nums, 0, pivot-1, target)) != -1:
+            return answer
+        return self.bs(nums, pivot, len(nums)-1, target)

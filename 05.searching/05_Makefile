@@ -1,0 +1,3 @@
+# make -f 05_Makefile test
+test:
+	python3 05_search_in_sorted_array_test.py
