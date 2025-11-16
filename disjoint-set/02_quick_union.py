@@ -11,7 +11,7 @@ class UnionFind:
         rootX = self.find(x)
         rootY = self.find(y)
         if rootX != rootY:
-            self.root[x] = rootY
+            self.root[rootX] = rootY
 
     def connected(self, x: int, y: int) -> bool:
         return self.find(x) == self.find(y)
