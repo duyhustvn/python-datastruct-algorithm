@@ -1,5 +1,5 @@
 class UnionFind:
-    def __init__(self, size):
+    def __init__(self, size: int):
         self.root = [i for i in range(size)]
 
     def find(self, idx: int) -> int:
