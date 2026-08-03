@@ -1,3 +1,0 @@
-# make -f 02_Makefile test
-test:
-	python3 02_sqrt_test.py

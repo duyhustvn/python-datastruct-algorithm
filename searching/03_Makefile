@@ -1,3 +1,0 @@
-# make -f 03_Makefile test
-test:
-	python3 03_search_insert_test.py
